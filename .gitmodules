@@ -1,0 +1,7 @@
+[submodule "frontend"]
+    path = frontend
+    url = https://github.com/solamsalu/Webstack---Portfolio-Project.git
+
+[submodule "portifolio_backend"]
+    path = portifolio_backend
+    url = https://github.com/solamsalu/Webstack---Portfolio-Project.git
