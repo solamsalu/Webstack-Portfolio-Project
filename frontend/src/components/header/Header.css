@@ -1,0 +1,96 @@
+/* Header.css
+header {
+   background-color: #333;
+   color: #fff;
+   padding: 1rem;
+   text-align: center;
+ }
+ 
+ div {
+   max-width: 800px;
+   margin: 0 auto;
+ }
+ 
+ nav {
+   margin-top: 1rem;
+ }
+ 
+ nav a {
+   margin: 0 1rem;
+   color: #fff;
+   text-decoration: none;
+ }
+ 
+ nav a:hover {
+   text-decoration: underline;
+ } */
+ 
+ /* Header.css */
+/* Move the CSS styles from the styled components to this file */
+
+/* Header.css */
+/* Add the flex-direction property to the header element */
+
+/* Header.css */
+/* Add the justify-content property to the header element */
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+  display: flex; /* Use flexbox layout */
+  flex-direction: row-reverse; /* Reverse the order of the flex items */
+  justify-content: space-between; /* Align the flex items to the opposite sides */
+}
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  nav {
+    margin-top: 0.5rem;
+  }
+}
+
+a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  a {
+    margin: 0.5rem;
+  }
+}

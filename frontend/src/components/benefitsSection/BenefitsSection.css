@@ -1,0 +1,24 @@
+/* BenefitsSection.css */
+.benefits-section {
+   background-color: #fff;
+   padding: 2rem;
+   text-align: center;
+ }
+ 
+ .benefits-section h2 {
+   color: #333;
+ }
+ 
+ .benefits-section div {
+   max-width: 800px;
+   margin: 0 auto;
+ }
+ 
+ .benefits-section h3 {
+   color: #333;
+ }
+ 
+ .benefits-section p {
+   color: #666;
+ }
+ 

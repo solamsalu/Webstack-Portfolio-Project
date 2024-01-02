@@ -1,0 +1,58 @@
+/* HomeContent.css */
+
+/* Add a margin-top to the HomeContent equal to the height of the header */
+.car-list {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px; /* Added this line */
+  padding: 1rem;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cm9hZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'); /* Add a background image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.car-card {
+  border: 1px solid #fff; /* Change the border color to white */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Change the box-shadow color to white */
+  padding: 0.5rem;
+}
+
+.car-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out; /* Add a transition effect to the image */
+}
+
+.car-card img:hover {
+  transform: scale(1.1); /* Zoom in the image slightly when hovered */
+}
+
+.car-card h3 {
+  margin: 0.5rem 0;
+}
+
+.car-card p {
+  margin: 0.25rem 0;
+}
+
+.car-card a {
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.car-card a:hover {
+  background-color: #444;
+}

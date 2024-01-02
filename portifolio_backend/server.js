@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// Routes 
 app.use('/api/cars', carRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/rentals', rentalRoutes);

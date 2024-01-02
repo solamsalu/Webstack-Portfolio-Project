@@ -1,5 +1,7 @@
+// CarList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import DeleteCar from './DeleteCar';
 
 const CarList = () => {
   const [cars, setCars] = useState([]);
@@ -15,14 +17,17 @@ const CarList = () => {
       });
   }, []);
 
+  const handleDeleteCar = (deletedCarId) => {
+    // Remove the deleted car from the car list
+    setCars(prevCars => prevCars.filter(car => car._id !== deletedCarId));
+  };
+
   return (
     <div>
-      <h1>Car List</h1>
-      <ul>
-        {cars.map(car => (
-          <li key={car._id}>{car.make} - {car.model} ({car.year})</li>
-        ))}
-      </ul>
+      <h2>Car List</h2>
+      {cars.map(car => (
+        <DeleteCar key={car._id} car={car} onDelete={handleDeleteCar} />
+      ))}
     </div>
   );
 };
