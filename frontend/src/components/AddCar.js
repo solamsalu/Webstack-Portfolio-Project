@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddCar = () => {
-  const [make, setMake] = useState('');
-  const [model, setModel] = useState('');
-  const [year, setYear] = useState('');
-  const [rentalPrice, setRentalPrice] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [image, setImage] = useState('');
 
   const handleSubmit = () => {
     // Make a POST request to add a new car
-    axios.post('http://localhost:3001/api/cars', { make, model, year, rentalPrice })
+    axios.post('http://localhost:3001/api/cars', { name, description, price, image })
       .then(response => {
         console.log('Car added successfully:', response.data);
       })
@@ -23,10 +23,10 @@ const AddCar = () => {
     <div>
       <h1>Add Car</h1>
       <form onSubmit={handleSubmit}>
-        <label>Make: <input type="text" value={make} onChange={(e) => setMake(e.target.value)} /></label>
-        <label>Model: <input type="text" value={model} onChange={(e) => setModel(e.target.value)} /></label>
-        <label>Year: <input type="text" value={year} onChange={(e) => setYear(e.target.value)} /></label>
-        <label>Rental Price: <input type="text" value={rentalPrice} onChange={(e) => setRentalPrice(e.target.value)} /></label>
+        <label>Name: <input type="text" value={name} onChange={(e) => setName(e.target.value)} /></label>
+        <label>Description: <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} /></label>
+        <label>Price: <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} /></label>
+        <label>Image: <input type="text" value={image} onChange={(e) => setImage(e.target.value)} /></label>
         <button type="submit">Add Car</button>
       </form>
     </div>

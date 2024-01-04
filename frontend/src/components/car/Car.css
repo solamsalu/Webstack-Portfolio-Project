@@ -1,0 +1,30 @@
+.car-page {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin: 0;
+   padding: 0;
+   color: #333;
+   font-family: 'Roboto', sans-serif;
+ }
+ 
+ main {
+   max-width: 1200px;
+   margin: 0 auto;
+   margin-top: 150px;
+   padding: 1rem;
+ }
+ 
+ .car-filter,
+ .car-sort,
+ .car-list {
+   margin: 1rem 0;
+   padding: 0.5rem;
+   border: 1px solid #f9c74f;
+   border-radius: 10px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease-in-out;
+ }
+ 
+ .car-filter:hover

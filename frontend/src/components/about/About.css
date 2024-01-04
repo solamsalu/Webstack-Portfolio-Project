@@ -1,0 +1,117 @@
+/* About.css */
+.about-page {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 1rem;
+   font-family: 'Roboto', sans-serif;
+   color: #333;
+ }
+ 
+ .about-page h1 {
+   font-size: 3rem;
+   font-weight: bold;
+   text-align: center;
+   margin-bottom: 1rem;
+ }
+ 
+ .about-page p {
+   font-size: 1.2rem;
+   line-height: 1.5;
+   margin-bottom: 0.5rem;
+ }
+ 
+ .about-page ul {
+   list-style: none;
+   margin-bottom: 1rem;
+ }
+ 
+ .about-page li {
+   font-size: 1.2rem;
+   margin-bottom: 0.5rem;
+ }
+ 
+ .about-page li::before {
+   content: "\2713";
+   color: green;
+   margin-right: 0.5rem;
+ }
+ 
+ .about-awards,
+ .about-testimonials,
+ .about-social,
+ .about-cta {
+   margin: 2rem 0;
+   padding: 1rem;
+   border: 1px solid #f9c74f;
+   border-radius: 10px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease-in-out;
+ }
+ 
+ .about-awards:hover,
+ .about-testimonials:hover,
+ .about-social:hover,
+ .about-cta:hover {
+   transform: scale(1.05);
+ }
+ 
+ .about-testimonial {
+   margin: 1rem 0;
+   padding: 0.5rem;
+   border: 1px solid #eee;
+   border-radius: 10px;
+   background-color: #f0f0f0;
+ }
+ 
+ .about-social-icons {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .about-social-icons a {
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   margin: 0.5rem;
+   border-radius: 50%;
+   background-color: #333;
+   color: white;
+   text-align: center;
+   line-height: 40px;
+   font-size: 1.5rem;
+   text-decoration: none;
+ }
+ 
+ .about-social-icons a:hover {
+   background-color: #f9c74f;
+ }
+ 
+ .about-cta-buttons {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+ }
+ 
+ .about-cta-button {
+   display: inline-block;
+   width: 200px;
+   height: 50px;
+   margin: 0.5rem;
+   border: none;
+   border-radius: 10px;
+   background-color: #f9c74f;
+   color: white;
+   font-size: 1.2rem;
+   font-weight: bold;
+   text-align: center;
+   line-height: 50px;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ 
+ .about-cta-button:hover {
+   background-color: #333;
+ }
+ 

@@ -26,11 +26,26 @@ const getCarById = async (req, res) => {
   }
 };
 
-const createCar = async (req, res) => {
-  const { make, model, year, rentalPrice } = req.body;
+const getCarByName = async (req, res) => {
+  const carName = req.params.name;
 
   try {
-    const newCar = new Car({ make, model, year, rentalPrice });
+    const car = await Car.findOne({ name: carName });
+    if (!car) {
+      return res.status(404).json({ message: 'Car not found' });
+    }
+    res.status(200).json(car);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+};
+
+const createCar = async (req, res) => {
+  const { name, description, price, image } = req.body;
+
+  try {
+    const newCar = new Car({ name, description, price, image });
     const savedCar = await newCar.save();
     res.status(201).json(savedCar);
   } catch (error) {
@@ -70,10 +85,5 @@ const deleteCar = async (req, res) => {
   }
 };
 
-module.exports = {
-  getAllCars,
-  getCarById,
-  createCar,
-  updateCar,
-  deleteCar,
-};
+module.exports = { getAllCars, getCarById, getCarByName, createCar, updateCar, deleteCar };
+

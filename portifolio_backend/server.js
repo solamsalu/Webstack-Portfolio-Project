@@ -1,38 +1,48 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const connectDB = require('./Config/db');
 const cors = require('cors');
+const path = require('path'); // Import the 'path' module
+
 const carRoutes = require('./Routes/carRoutes');
 const userRoutes = require('./Routes/userRoutes');
 const rentalRoutes = require('./Routes/rentalRoutes');
 
 dotenv.config();
 
-
-
 // Connect to MongoDB
-connectDB();
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express();
 const port = process.env.PORT || 3001;
 
+// app.get('/', (req, res) => {
+//   res.send('Server is running');
+// });
+
 // Enable CORS
 app.use(cors());
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
 app.use('/api/cars', carRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/rentals', rentalRoutes);
 
 // Error handling middleware
-app.use((err, req, res, next) => { // Add this middleware to handle errors
-   res.status(500).send({ error: err.message });
+app.use((err, req, res, next) => {
+  res.status(500).send({ error: err.message });
 });
 
 // Start the server
 app.listen(port, () => {
-   console.log(`Server is listening at http://localhost:${port}`);
+  console.log(`Server is listening at http://localhost:${port}`);
 });

@@ -1,39 +1,4 @@
-/* Header.css
-header {
-   background-color: #333;
-   color: #fff;
-   padding: 1rem;
-   text-align: center;
- }
- 
- div {
-   max-width: 800px;
-   margin: 0 auto;
- }
- 
- nav {
-   margin-top: 1rem;
- }
- 
- nav a {
-   margin: 0 1rem;
-   color: #fff;
-   text-decoration: none;
- }
- 
- nav a:hover {
-   text-decoration: underline;
- } */
- 
- /* Header.css */
-/* Move the CSS styles from the styled components to this file */
-
 /* Header.css */
-/* Add the flex-direction property to the header element */
-
-/* Header.css */
-/* Add the justify-content property to the header element */
-
 header {
   background-color: #333;
   color: #fff;
@@ -48,11 +13,23 @@ header {
   display: flex; /* Use flexbox layout */
   flex-direction: row-reverse; /* Reverse the order of the flex items */
   justify-content: space-between; /* Align the flex items to the opposite sides */
+  font-family: 'Roboto', sans-serif; /* Change the font family to Roboto */
 }
 
 header.scrolled {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 0.5rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 100px;
+  height: 100px;
 }
 
 h1 {
@@ -81,12 +58,13 @@ nav {
 
 a {
   margin: 0 1rem;
-  color: #fff;
-  text-decoration: none;
+  color: #fff; /* Change the link color to white */
+  text-decoration: none; /* Remove the link decoration */
+  transition: color 0.3s ease-in-out; /* Add a transition effect to the link color */
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #f9c74f; /* Change the link color to yellow on hover */
 }
 
 @media (max-width: 768px) {
@@ -94,3 +72,12 @@ a:hover {
     margin: 0.5rem;
   }
 }
+
+.fa-car {
+  margin-right: 0.5rem; /* Add some margin to the car icon */
+}
+
+.active {
+  color: #f9c74f; /* Change the link color to yellow when active */
+}
+

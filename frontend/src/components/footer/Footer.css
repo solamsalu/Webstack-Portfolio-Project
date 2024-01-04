@@ -5,51 +5,48 @@ footer {
   padding: 1rem;
   text-align: center;
   margin-top: 50px; /* Add a margin-top equal to the header height */
+  font-family: 'Roboto', sans-serif; /* Change the font family to Roboto */
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Create a grid layout with four columns */
-  grid-gap: 1rem; /* Add some gap between the columns */
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Align the socials and contact divs to the opposite sides */
   max-width: 1200px; /* Set a max-width for the container */
   margin: 0 auto; /* Center the container */
 }
 
-.footer-links,
+.footer-logo,
 .footer-socials,
 .footer-contact,
-.footer-newsletter {
+.footer-image {
   padding: 0.5rem; /* Add some padding to each component */
 }
 
-.footer-links h3,
+
+
 .footer-socials h3,
-.footer-contact h3,
-.footer-newsletter h3 {
+.footer-contact h3 {
   margin: 0 0 0.5rem 0; /* Add some margin to the headings */
 }
 
-.footer-links ul,
 .footer-socials ul {
   list-style: none; /* Remove the list style */
   padding: 0; /* Remove the padding */
   margin: 0; /* Remove the margin */
 }
 
-.footer-links li,
 .footer-socials li {
   margin: 0.25rem 0; /* Add some margin to the list items */
 }
 
-.footer-links a,
 .footer-socials a {
   color: #fff; /* Set the link color to white */
   text-decoration: none; /* Remove the link decoration */
+  transition: color 0.3s ease-in-out; /* Add a transition effect to the link color */
 }
 
-.footer-links a:hover,
 .footer-socials a:hover {
-  color: #ccc; /* Change the link color to gray on hover */
+  color: #f9c74f; /* Change the link color to yellow on hover */
 }
 
 .footer-socials ul {
@@ -57,41 +54,23 @@ footer {
   justify-content: space-between; /* Add some space between the icons */
 }
 
-.footer-newsletter form {
-  display: flex; /* Use flexbox to align the input and button */
+.footer-contact p {
+  margin: 0.25rem 0; /* Add some margin to the paragraphs */
 }
 
-.footer-newsletter input {
-  flex: 1; /* Make the input take the remaining space */
-  padding: 0.5rem; /* Add some padding to the input */
-  border: none; /* Remove the input border */
-  outline: none; /* Remove the input outline */
-}
 
-.footer-newsletter button {
-  padding: 0.5rem 1rem; /* Add some padding to the button */
-  background-color: #fff; /* Set the button background color to white */
-  color: #333; /* Set the button text color to black */
-  border: none; /* Remove the button border */
-  outline: none; /* Remove the button outline */
-  cursor: pointer; /* Change the cursor to pointer on hover */
-}
-
-.footer-newsletter button:hover {
-  background-color: #ccc; /* Change the button background color to gray on hover */
-}
 
 .footer-bottom {
   margin-top: 1rem; /* Add some margin to the bottom section */
 }
 
-@media screen and (max-width: 768px) { /* Use a media query to make the layout responsive */
+@media screen and (max-width: 1024px) { /* Use a media query to make the layout responsive */
   .footer-container {
     grid-template-columns: repeat(2, 1fr); /* Change the grid layout to two columns */
   }
 }
 
-@media screen and (max-width: 480px) { /* Use another media query to make the layout more responsive */
+@media screen and (max-width: 768px) { /* Use another media query to make the layout more responsive */
   .footer-container {
     grid-template-columns: 1fr; /* Change the grid layout to one column */
   }
