@@ -1,5 +1,5 @@
 // controllers/rentalController.js
-const Rental = require('../models/Rental');
+const Rental = require('../Models/Rental');
 
 const getAllRentals = async (req, res) => {
   try {

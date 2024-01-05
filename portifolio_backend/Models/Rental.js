@@ -23,6 +23,6 @@ const rentalSchema = new mongoose.Schema({
   // Add more rental-related fields as needed
 });
 
-const Rental = mongoose.model('Rental', rentalSchema);
+const Rental = mongoose.model('rentals', rentalSchema);
 
 module.exports = Rental;

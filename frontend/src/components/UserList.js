@@ -23,13 +23,17 @@ const UserList = () => {
   };
 
   return (
-    <div>
-      <h2>User List</h2>
-      {users.map(user => (
-        <DeleteUser key={user._id} user={user} onDelete={handleDeleteUser} />
-      ))}
-    </div>
-  );
+  <div>
+    <h2>User List</h2>
+    {users.map(user => (
+      <div key={user._id}>
+        <p>Username: {user.username}</p>
+        <p>Email: {user.email}</p>
+        <DeleteUser user={user} onDelete={handleDeleteUser} />
+      </div>
+    ))}
+  </div>
+);
 };
 
 export default UserList;

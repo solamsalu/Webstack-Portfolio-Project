@@ -27,7 +27,7 @@ const getCarById = async (req, res) => {
 };
 
 const getCarByName = async (req, res) => {
-  const carName = req.params.name;
+  const carName = req.params.carName;
 
   try {
     const car = await Car.findOne({ name: carName });

@@ -5,7 +5,8 @@ const router = express.Router();
 router.get('/', carController.getAllCars);
 
 // Routes for Cars
-router.get('/:name', carController.getCarByName); 
+// router.get('/:id', carController.getCarById);
+router.get('/:carName', carController.getCarByName);
 router.post('/', carController.createCar);
 router.put('/:id', carController.updateCar);
 router.delete('/:id', carController.deleteCar);

@@ -7,11 +7,11 @@ const path = require('path'); // Import the 'path' module
 const carRoutes = require('./Routes/carRoutes');
 const userRoutes = require('./Routes/userRoutes');
 const rentalRoutes = require('./Routes/rentalRoutes');
-
+// const Car = require('./Models/Car');
 dotenv.config();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost:27017/selamCar", { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -37,6 +37,16 @@ app.use('/api/cars', carRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/rentals', rentalRoutes);
 
+// app.get('/getAllCars', async (req, res) => {
+//   try {
+//     const cars = await Car.find();
+//     res.status(200).json(cars);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).json({ message: 'Internal Server Error', error: error.message });
+//   }
+// });
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   res.status(500).send({ error: err.message });
@@ -46,3 +56,4 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
+

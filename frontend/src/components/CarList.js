@@ -22,14 +22,21 @@ const CarList = () => {
     setCars(prevCars => prevCars.filter(car => car._id !== deletedCarId));
   };
 
+  // Assuming car has properties like name, price, and description
   return (
     <div>
-      <h2>Car List</h2>
+      <h2>Car s List</h2>
       {cars.map(car => (
-        <DeleteCar key={car._id} car={car} onDelete={handleDeleteCar} />
+        <div key={car._id}>
+          <h3>{car.name}</h3>
+          <p>Price: {car.price}</p>
+          <p>Description: {car.description}</p>
+          {/* <DeleteCar car={car} onDelete={handleDeleteCar} /> */}
+        </div>
       ))}
     </div>
   );
+
 };
 
 export default CarList;

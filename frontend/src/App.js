@@ -53,7 +53,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
-import Home from './components/Home';
+// import Home from './components/Home';
 import Services from './components/service/Services';
 import Admin from './components/admin/Admin';
 import Footer from './components/footer/Footer';
@@ -61,11 +61,14 @@ import CarList from './components/CarList';
 import UserList from './components/UserList';
 import AddUser from './components/AddUser';
 import AddCar from './components/AddCar';
+import RentalList from './components/RentalList'
 import Location from './components/location/Location';
 import Car from './components/car/Car';
 import About from './components/about/About';
 import './App.css';
 import HomeContent from './components/homeContent/HomeContent';
+import Users from './components/user/Users';
+
 
 const App = () => {
   return (
@@ -82,10 +85,16 @@ const App = () => {
           <Route path="/addusers" element={<AddUser />} />
           <Route path="/users" element={<UserList />} />
           <Route path='/car' element={<Car />} />
-          <Route path="/cars" element={<CarList />} />
-        </Routes>
+          {/* <Route path="/cars" element={<CarList />} /> */}
+          <Route path="/cars/:carName" element={<HomeContent />}
+/>        </Routes>
+
+        <Users />
+        {/* <CarList /> */}
+        <RentalList />
         <Footer />
       </div>
+      
     </Router>
   );
 };
