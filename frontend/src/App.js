@@ -68,7 +68,10 @@ import About from './components/about/About';
 import './App.css';
 import HomeContent from './components/homeContent/HomeContent';
 import Users from './components/user/Users';
-
+import Login from "./components/login/Login1";
+import Signup from "./components/login/Signup";
+import Dashboard from "./components/customerDashboard/Dashboard";
+import RentalForm from "./components/rentalForm/RentalForm";
 
 const App = () => {
   return (
@@ -85,16 +88,21 @@ const App = () => {
           <Route path="/addusers" element={<AddUser />} />
           <Route path="/users" element={<UserList />} />
           <Route path='/car' element={<Car />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/rental-form" element={<RentalForm />} />
           {/* <Route path="/cars" element={<CarList />} /> */}
           <Route path="/cars/:carName" element={<HomeContent />}
-/>        </Routes>
+          />
+        </Routes>
 
         <Users />
         {/* <CarList /> */}
-        <RentalList />
+        {/* <RentalList /> */}
         <Footer />
       </div>
-      
+
     </Router>
   );
 };

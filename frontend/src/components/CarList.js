@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeleteCar from './DeleteCar';
+import './CarList.css';
 
 const CarList = () => {
   const [cars, setCars] = useState([]);

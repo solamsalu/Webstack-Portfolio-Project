@@ -66,7 +66,7 @@ const Header = ({ title, subtitle }) => {
         <div className="logo-container">
           {/* <img src={process.env.PUBLIC_URL + '/img/logo/logo.png'} alt="logo" />  */}
           <h1>Selam Car Rental</h1>
-          <p>The Best Way to Travel</p>
+          {/* <p>The Best Way to Travel</p> */}
         </div>
         <nav>
           <NavLink exact to="/" activeClassName="active"><FaHome /> Home</NavLink> 
