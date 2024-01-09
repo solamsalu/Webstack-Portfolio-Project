@@ -1,6 +1,9 @@
-// controllers/userController.js
+// userController.js
 const User = require('../Models/User');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
+// Get all users
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -11,6 +14,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// Get user by ID
 const getUserById = async (req, res) => {
   const userId = req.params.id;
 
@@ -26,11 +30,16 @@ const getUserById = async (req, res) => {
   }
 };
 
+// Create a new user
 const createUser = async (req, res) => {
   const { username, password, email } = req.body;
 
   try {
     const newUser = new User({ username, password, email });
+    // Hash the password before saving it to the database
+    const salt = await bcrypt.genSalt(10);
+    newUser.password = await bcrypt.hash(password, salt);
+
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
   } catch (error) {
@@ -39,6 +48,50 @@ const createUser = async (req, res) => {
   }
 };
 
+// Login user and generate JWT
+const loginUser = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    // Create and sign a JWT
+    const token = jwt.sign({ user: { id: user._id } }, process.env.JWT_SECRET, {
+      expiresIn: '1h', // Token expires in 1 hour
+    });
+
+    res.status(200).json({ token });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+};
+
+// const signup = async (req, res) => {
+//   // Implement signup logic here
+// };
+
+// Get user profile
+const getProfile = async (req, res) => {
+  // The user information is available in req.user due to the authMiddleware
+  try {
+    const user = await User.findById(req.user.id).select('-password'); // Exclude password from the response
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+};
+
+// Update user information
 const updateUser = async (req, res) => {
   const userId = req.params.id;
   const updatedUserData = req.body;
@@ -55,6 +108,7 @@ const updateUser = async (req, res) => {
   }
 };
 
+// Delete a user
 const deleteUser = async (req, res) => {
   const userId = req.params.id;
 
@@ -74,6 +128,9 @@ module.exports = {
   getAllUsers,
   getUserById,
   createUser,
+  loginUser,
+  // signup,
+  getProfile,
   updateUser,
   deleteUser,
 };

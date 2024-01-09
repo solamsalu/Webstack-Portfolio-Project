@@ -1,19 +1,18 @@
 // CustomerDashboard.js
 
 import React from 'react';
-import './Dashboard.css'; // Import the corresponding CSS file
 
-const CustomerDashboard = () => {
-  // Fetch and display customer-specific data (e.g., rental history, profile information, etc.)
-
+const Dashboard = ({ user, onLogout }) => {
   return (
-    <div className="customer-dashboard-container">
-      <div className="customer-dashboard">
-        <h2>Customer Dashboard</h2>
-        {/* Display customer-related information */}
-      </div>
+    <div className="dashboard">
+      <h1>Welcome, {user.username}!</h1>
+      <p>Email: {user.email}</p>
+
+      {/* Add more dashboard features or information here */}
+
+      <button onClick={onLogout}>Logout</button>
     </div>
   );
 };
 
-export default CustomerDashboard;
+export default Dashboard;

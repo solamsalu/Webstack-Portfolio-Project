@@ -17,7 +17,7 @@ const DeleteCar = ({ car, onDelete }) => {
 
   return (
     <div>
-      <p>{car.make} - {car.model}</p>
+      {/* <p>{car.make} - {car.model}</p> */}
       <button onClick={handleDelete}>Delete Car</button>
     </div>
   );

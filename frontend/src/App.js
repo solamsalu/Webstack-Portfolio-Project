@@ -68,7 +68,7 @@ import About from './components/about/About';
 import './App.css';
 import HomeContent from './components/homeContent/HomeContent';
 import Users from './components/user/Users';
-import Login from "./components/login/Login1";
+import Login from "./components/login/LoginForm";
 import Signup from "./components/login/Signup";
 import Dashboard from "./components/customerDashboard/Dashboard";
 import RentalForm from "./components/rentalForm/RentalForm";
@@ -97,8 +97,9 @@ const App = () => {
           />
         </Routes>
 
-        <Users />
-        {/* <CarList /> */}
+        {/* <Users /> */}
+        { <AddCar />}
+        <CarList />
         {/* <RentalList /> */}
         <Footer />
       </div>

@@ -2,15 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const path = require('path'); // Import the 'path' module
+const path = require('path');
+const multer = require('multer');
+const jwt = require('jsonwebtoken'); // Add JWT
 
 const carRoutes = require('./Routes/carRoutes');
 const userRoutes = require('./Routes/userRoutes');
 const rentalRoutes = require('./Routes/rentalRoutes');
-// const Car = require('./Models/Car');
 dotenv.config();
 
-// Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/selamCar", { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -18,42 +18,63 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const app = express();
 const port = process.env.PORT || 3001;
 
-// app.get('/', (req, res) => {
-//   res.send('Server is running');
-// });
-
-// Enable CORS
 app.use(cors());
-
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Set up multer for handling file uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
-app.use('/api/cars', carRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/rentals', rentalRoutes);
+// Authentication user
+const auth = (req, res, next) => {
+  const token = req.header('x-auth-token');
 
-// app.get('/getAllCars', async (req, res) => {
-//   try {
-//     const cars = await Car.find();
-//     res.status(200).json(cars);
-//   } catch (error) {
-//     console.error(error.message);
-//     res.status(500).json({ message: 'Internal Server Error', error: error.message });
-//   }
-// });
+  // Check if token exists
+  if (!token) {
+    return res.status(401).json({ message: 'No token, authorization denied' });
+  }
+
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Add user from payload
+    req.user = decoded.user;
+
+    next();
+  } catch (e) {
+    res.status(400).json({ message: 'Token is not valid' });
+  }
+};
+
+// Use the authentication middleware for protected routes
+app.use('/api/cars', auth, carRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/rentals', auth, rentalRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   res.status(500).send({ error: err.message });
 });
 
-// Start the server
+// Route for handling file uploads
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  // Access the uploaded file using req.file
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.');
+  }
+
+  // Do something with the file, for example, save it to MongoDB
+  // const image = req.file.buffer.toString('base64');
+  // Save to MongoDB or perform other actions as needed
+
+  res.status(200).send('File uploaded successfully.');
+});
+
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
-
