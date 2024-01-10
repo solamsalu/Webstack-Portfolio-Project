@@ -1,4 +1,3 @@
-// models/User.js
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -16,7 +15,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  // Add more user-related fields as needed
 });
 
 const User = mongoose.model('users', userSchema);

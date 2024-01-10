@@ -1,15 +1,38 @@
+// LoginForm.js
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform login logic (e.g., API request, validation)
-    // If successful, call the onLogin callback with user data
-    const userData = { username, email: 'example@email.com' }; // Replace with actual user data
-    onLogin(userData);
+
+    try {
+      const response = await axios.post('http://localhost:3001/api/login', {
+        username, // Use the correct field name
+        password,
+      });
+
+      const token = response.data.token;
+
+      // Save the token in the local storage
+      localStorage.setItem('token', token);
+
+      // Fetch user profile or perform any other actions needed after login
+      const userResponse = await axios.get('http://localhost:3001/api/users/profile', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Call the onLogin callback with user data
+      onLogin(userResponse.data);
+    } catch (error) {
+      console.error('Login error:', error.response.data);
+      // Handle login failure (show error message, etc.)
+    }
   };
 
   return (

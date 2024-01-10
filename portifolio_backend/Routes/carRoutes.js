@@ -13,6 +13,7 @@
 
 // module.exports = router;
 
+// routes/carRoutes.js
 const express = require('express');
 const router = express.Router();
 const carController = require('../Controllers/carController');
@@ -25,8 +26,7 @@ const upload = multer({ storage: storage });
 router.get('/', carController.getAllCars);
 router.get('/:id', carController.getCarById);
 router.get('/name/:carName', carController.getCarByName);
-router.post('/', carController.createCar);
-router.post('/', upload.single('image'), carController.createCar);
+router.post('/', upload.single('image'), carController.createCar); // Only this route for creating a car
 
 router.put('/:id', carController.updateCar);
 router.delete('/:id', carController.deleteCar);

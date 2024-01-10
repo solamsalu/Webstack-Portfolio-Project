@@ -73,6 +73,7 @@ import Signup from "./components/login/Signup";
 import Dashboard from "./components/customerDashboard/Dashboard";
 import RentalForm from "./components/rentalForm/RentalForm";
 
+
 const App = () => {
   return (
     <Router>
@@ -96,9 +97,9 @@ const App = () => {
           <Route path="/cars/:carName" element={<HomeContent />}
           />
         </Routes>
-
-        {/* <Users /> */}
-        { <AddCar />}
+        <AddUser />
+        {<Users />}
+        {<AddCar />}
         <CarList />
         {/* <RentalList /> */}
         <Footer />

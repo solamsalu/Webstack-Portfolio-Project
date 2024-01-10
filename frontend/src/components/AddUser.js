@@ -6,11 +6,16 @@ const AddUser = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+  
     // Make a POST request to add a new user
-    axios.post('http://localhost:3001/api/users', { username, password, email })
+    axios.post('http://localhost:3001/api/users/create', { username, password, email })
       .then(response => {
         console.log('User added successfully:', response.data);
+        setUsername('');
+        setPassword('');
+        setEmail('');
       })
       .catch(error => {
         console.error('Error adding user:', error);

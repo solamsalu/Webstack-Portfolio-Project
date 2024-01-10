@@ -88,7 +88,7 @@
 // module.exports = { getAllCars, getCarById, getCarByName, createCar, updateCar, deleteCar };
 
 // controllers/carController.js
-const Car = require('../models/Car');
+const Car = require('../Models/Car');
 
 const getAllCars = async (req, res) => {
   try {
@@ -132,30 +132,17 @@ const getCarByName = async (req, res) => {
 
 const createCar = async (req, res) => {
   const { name, description, price } = req.body;
+  const image = req.file.buffer.toString('base64');
 
   try {
-    if (!req.file) {
-      return res.status(400).json({ message: 'Image is required' });
-    }
-
-    // Get the base64-encoded image data
-    const image = req.file.buffer.toString('base64');
-
-    // Create a new car instance with the image data
     const newCar = new Car({ name, description, price, image });
-
-    // Save the car to the database
     const savedCar = await newCar.save();
-
     res.status(201).json(savedCar);
   } catch (error) {
-    console.error(error.message);
+    console.error('Error adding car:', error);
     res.status(500).json({ message: 'Internal Server Error', error: error.message });
   }
 };
-
-
-
 
 const updateCar = async (req, res) => {
   const carId = req.params.id;

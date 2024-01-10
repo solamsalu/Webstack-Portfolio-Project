@@ -17,6 +17,7 @@ const getAllUsers = async (req, res) => {
 // Get user by ID
 const getUserById = async (req, res) => {
   const userId = req.params.id;
+  console.log('UserId:', userId);
 
   try {
     const user = await User.findById(userId);
@@ -41,6 +42,8 @@ const createUser = async (req, res) => {
     newUser.password = await bcrypt.hash(password, salt);
 
     const savedUser = await newUser.save();
+    console.log('User created successfully:', savedUser);
+
     res.status(201).json(savedUser);
   } catch (error) {
     console.error(error.message);
@@ -48,48 +51,24 @@ const createUser = async (req, res) => {
   }
 };
 
-// Login user and generate JWT
-const loginUser = async (req, res) => {
-  const { username, password } = req.body;
 
-  try {
-    const user = await User.findOne({ username });
-    if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
-
-    // Create and sign a JWT
-    const token = jwt.sign({ user: { id: user._id } }, process.env.JWT_SECRET, {
-      expiresIn: '1h', // Token expires in 1 hour
-    });
-
-    res.status(200).json({ token });
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: 'Internal Server Error', error: error.message });
-  }
-};
 
 // const signup = async (req, res) => {
 //   // Implement signup logic here
 // };
 
 // Get user profile
-const getProfile = async (req, res) => {
-  // The user information is available in req.user due to the authMiddleware
-  try {
-    const user = await User.findById(req.user.id).select('-password'); // Exclude password from the response
-    res.status(200).json(user);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: 'Internal Server Error', error: error.message });
-  }
-};
+// const getProfile = async (req, res) => {
+//   // The user information is available in req.user due to the authMiddleware
+//   try {
+//     const user = await User.findById(req.user.id).select('-password'); // Exclude password from the response
+//     res.status(200).json(user);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).json({ message: 'Internal Server Error', error: error.message });
+//   }
+// };
 
 // Update user information
 const updateUser = async (req, res) => {
@@ -128,9 +107,7 @@ module.exports = {
   getAllUsers,
   getUserById,
   createUser,
-  loginUser,
-  // signup,
-  getProfile,
+  // getProfile,
   updateUser,
   deleteUser,
 };
