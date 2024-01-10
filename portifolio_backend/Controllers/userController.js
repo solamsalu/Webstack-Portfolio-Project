@@ -103,6 +103,34 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// User login
+const loginUser = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // Check if user exists
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid username or password' });
+    }
+
+    // Check if password is correct
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid username or password' });
+    }
+
+    // Create and return a JWT
+    const payload = { userId: user._id };
+    const token = jwt.sign(payload, 'your_jwt_secret', { expiresIn: '1h' });
+
+    res.status(200).json({ token });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -110,4 +138,5 @@ module.exports = {
   // getProfile,
   updateUser,
   deleteUser,
+  loginUser
 };

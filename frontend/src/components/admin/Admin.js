@@ -14,15 +14,15 @@ const Admin = () => {
   return (
     <div className="admin-page">
       <Header />
-      <main>
+      {/* <main> */}
         <section className="dashboard">
           <h2><FaChartBar /> Dashboard</h2>
-          <p>Welcome to the admin panel of Selam Car Rental. Here you can manage your cars, users, statistics, and settings.</p>
+          <p>Welcome to the admin panel of Selam Car Rental. Here you can manage your cars, users, rentals and statistics.</p>
           <div className="dashboard-cards">
             <div className="dashboard-card">
               <h3>Cars</h3>
               <p>You have 50 cars in your fleet.</p>
-              <Link to="/cars"><FaCar /> Manage Cars</Link>
+              <Link to="/carlist1"><FaCar /> Manage Cars</Link>
             </div>
             <div className="dashboard-card">
               <h3>Users</h3>
@@ -51,7 +51,7 @@ const Admin = () => {
             </div>
           </div>
         </section>
-        <section className="statistics">
+        {/* <section className="statistics">
           <h2><FaChartBar /> Statistics</h2>
           <p>Here you can see the statistics of your car rental business.</p>
           {/* <div className="statistics-charts">
@@ -71,8 +71,8 @@ const Admin = () => {
               <CircularProgressbar value={90} text={`${90}%`} styles={buildStyles({ pathColor: '#277da1', textColor: '#333' })} />
             </div>
           </div> */}
-        </section>
-      </main>
+        {/* </section>  */}
+      {/* </main> */}
       {/* <Footer /> */}
     </div>
   );

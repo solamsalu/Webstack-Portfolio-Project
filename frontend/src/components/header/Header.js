@@ -70,7 +70,7 @@ const Header = ({ title, subtitle }) => {
         </div>
         <nav>
           <NavLink exact to="/" activeClassName="active"><FaHome /> Home</NavLink> 
-          <NavLink to="/car" activeClassName="active"><FaCar /> Cars</NavLink>
+          <NavLink to="/carlist" activeClassName="active"><FaCar /> Cars</NavLink>
           <NavLink to="/locations" activeClassName="active"><FaMapMarkerAlt /> Locations</NavLink> 
           <NavLink to="/admin" activeClassName="active"><FaUserCog /> Admin</NavLink>
           <NavLink to="/services" activeClassName="active"><FaTools /> Services</NavLink>

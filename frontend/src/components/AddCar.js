@@ -100,6 +100,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import './AddCar.css'
 
 const AddCar = () => {
   const [carData, setCarData] = useState({
@@ -144,17 +145,21 @@ const AddCar = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name:</label>
-      <input type="text" name="name" value={carData.name} onChange={handleInputChange} required />
-      <label>Description:</label>
-      <textarea name="description" value={carData.description} onChange={handleInputChange} required />
-      <label>Price:</label>
-      <input type="number" name="price" value={carData.price} onChange={handleInputChange} required />
-      <label>Image:</label>
-      <input type="file" accept="image/*" onChange={handleImageInputChange} required />
-      <button type="submit">Add Car</button>
-    </form>
+    <div className="add-car-container">
+      <h2>Add Car</h2>
+      <form className="add-car-form" onSubmit={handleSubmit}>
+
+        <label htmlFor="name">Name:</label>
+        <input type="text" id="name" name="name" value={carData.name} onChange={handleInputChange} required />
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" name="description" value={carData.description} onChange={handleInputChange} required />
+        <label htmlFor="price">Price:</label>
+        <input type="number" id="price" name="price" value={carData.price} onChange={handleInputChange} required />
+        <label htmlFor="image">Image:</label>
+        <input type="file" id="image" accept="image/*" onChange={handleImageInputChange} required />
+        <button type="submit" className="add-car-btn">Add Car</button>
+      </form>
+    </div>
   );
 };
 

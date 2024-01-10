@@ -1,0 +1,56 @@
+/* addCarStyle.css */
+
+.add-car-container {
+  max-width: 400px;
+  margin: 20px auto;
+  margin-top: 100px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.add-car-container h2 {
+  color: #333;
+}
+
+.add-car-container form {
+  margin-top: 20px;
+}
+
+.add-car-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.add-car-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+
+
+.add-car-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.add-car-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.add-car-btn:hover {
+  background-color: #45a049;
+}

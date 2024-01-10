@@ -14,7 +14,7 @@ const Location = () => {
         <section className="location-intro">
           <h2><FaMapMarkerAlt /> Location</h2>
           <p>We have multiple locations across Ethiopia, where you can pick up and drop off your rented car. You can also choose a different location for pick up and drop off, depending on your travel plans. You can find the nearest location to you on our map or on our list of towns.</p>
-          <Link to="/booking">Book Now</Link>
+          <Link to="/carlist">Book Now</Link>
         </section>
         <section className="location-map">
           <h2>Map</h2>

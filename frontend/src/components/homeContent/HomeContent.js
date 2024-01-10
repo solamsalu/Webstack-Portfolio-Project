@@ -7,9 +7,9 @@ function HomeContent() {
   return (
     <div className="container">
       <div className="hero">
-        <h1>Welcome to Car Rental</h1>
+        <h1>Welcome to Selam Car Rental</h1>
         <p>Your journey begins with us</p>
-        <Link to="/cars" className="button">
+        <Link to="/carlist" className="button">
           Book Now
         </Link>
       </div>
@@ -47,7 +47,7 @@ function HomeContent() {
         </Link>
               </div>
               <p>
-        Already have an account? <Link to="/login">Login</Link>
+        {/* Already have an account? <Link to="/login">Login</Link> */}
       </p>
             </div>
           </div>

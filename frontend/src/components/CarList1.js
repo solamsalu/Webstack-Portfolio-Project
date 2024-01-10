@@ -141,11 +141,11 @@ const CarList = () => {
           <div className="car-details">
             <h3>{car.name}</h3>
             <p>Price: {car.price}</p>
-            {/* <p>Description: {car.description}</p> */}
-            {/* <DeleteCar car={car} onDelete={handleDeleteCar} /> */}
-            <Link to="/rental-form" className="button">
-          Rent Now
-        </Link>
+            <p>Description: {car.description}</p>
+            <DeleteCar car={car} onDelete={handleDeleteCar} />
+            {/* <Link to="/rental-form" className="button"> */}
+          {/* Rent Now
+        </Link> */}
           </div>
         </div>
       ))}

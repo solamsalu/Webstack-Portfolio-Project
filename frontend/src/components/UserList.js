@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeleteUser from './DeleteUser';
-
+import './UserList.css'
 const UserList = () => {
   const [users, setUsers] = useState([]);
 
@@ -22,18 +22,19 @@ const UserList = () => {
     setUsers(prevUsers => prevUsers.filter(user => user._id !== deletedUserId));
   };
 
+  
   return (
-  <div>
-    <h2>User List</h2>
-    {users.map(user => (
-      <div key={user._id}>
-        <p>Username: {user.username}</p>
-        <p>Email: {user.email}</p>
-        <DeleteUser user={user} onDelete={handleDeleteUser} />
-      </div>
-    ))}
-  </div>
-);
+    <div className="user-list-container">
+      <h2>User List</h2>
+      {users.map(user => (
+        <div key={user._id} className="user-card">
+          <p>Username: {user.username}</p>
+          <p>Email: {user.email}</p>
+          <DeleteUser user={user} onDelete={handleDeleteUser} />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default UserList;

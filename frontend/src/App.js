@@ -58,6 +58,7 @@ import Services from './components/service/Services';
 import Admin from './components/admin/Admin';
 import Footer from './components/footer/Footer';
 import CarList from './components/CarList';
+import CarList1 from './components/CarList1';
 import UserList from './components/UserList';
 import AddUser from './components/AddUser';
 import AddCar from './components/AddCar';
@@ -68,10 +69,12 @@ import About from './components/about/About';
 import './App.css';
 import HomeContent from './components/homeContent/HomeContent';
 import Users from './components/user/Users';
-import Login from "./components/login/LoginForm";
+// import Login from "./components/login/LoginForm";
 import Signup from "./components/login/Signup";
 import Dashboard from "./components/customerDashboard/Dashboard";
 import RentalForm from "./components/rentalForm/RentalForm";
+import LoginForm from "./components/loginRegis/Login"
+import RegistrationForm from './components/loginRegis/Registration';
 
 
 const App = () => {
@@ -89,19 +92,18 @@ const App = () => {
           <Route path="/addusers" element={<AddUser />} />
           <Route path="/users" element={<UserList />} />
           <Route path='/car' element={<Car />} />
-          <Route path="/login" element={<Login />} />
+          <Route path='/carlist' element={<CarList />}/>
+          <Route path='/carlist1' element={<CarList1 />}/>
+          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/rental-form" element={<RentalForm />} />
           {/* <Route path="/cars" element={<CarList />} /> */}
-          <Route path="/cars/:carName" element={<HomeContent />}
-          />
+          <Route path="/cars/:carName" element={<HomeContent />}/>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegistrationForm />} />
         </Routes>
-        <AddUser />
-        {<Users />}
-        {<AddCar />}
-        <CarList />
-        {/* <RentalList /> */}
+        
         <Footer />
       </div>
 
