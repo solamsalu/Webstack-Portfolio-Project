@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# 📌 Selam Car Rental Web Site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Selam Car Rental Website is a full-stack MERN application designed for car rental, integrating essential dependencies like Redux Toolkit, Stripe, testing-library, Axios, React, React Router, and Tailwind CSS.
 
-## Available Scripts
+## 🔍 Table of Contents
 
-In the project directory, you can run:
+- [📝 Project Summary](#-project-summary)
+- [💻 Stack](#-stack)
+- [⚙️ Setting Up](#-setting-up)
+- [🚀 Run Locally](#-run-locally)
 
-### `npm start`
+## 📝 Project Summary
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Selam Car Rental is a comprehensive car rental platform with distinct directories and components in the client-side and server-side codebase:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **client/src**: Main source code for the client-side application.
+- **client/src/components**: Reusable UI components reside here.
+- **client/src/features**: Feature-specific components and logic.
+- **client/src/pages**: Different pages of the application.
+- **client/src/utils**: Utility functions and helper methods.
+- **server/controllers**: Implements the logic for handling HTTP requests.
+- **server/models**: Defines the data models used by the server.
 
-### `npm test`
+## 💻 Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [reduxjs/toolkit](https://redux-toolkit.js.org/): Library simplifying Redux state management.
+- [stripe/react-stripe-js](https://github.com/stripe/react-stripe-js): React components for integrating Stripe payments.
+- [axios](https://axios-http.com/): A promise-based HTTP client for making API requests.
+- [react](https://reactjs.org/): JavaScript library for building user interfaces.
+- [react-dom](https://reactjs.org/docs/react-dom.html): Provides the DOM-specific methods for React.
+- [react-redux](https://react-redux.js.org/): Official React bindings for Redux.
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start): Declarative routing for React applications.
 
-### `npm run build`
+## ⚙️ Setting Up
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Environment Variables
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this project, you need to add the following environment variables to your .env file in the server folder:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `JWT_SECRET`
+- `MONGO_URI`
 
-### `npm run eject`
+## 🚀 Run Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the Rent a Car repository:**
+   ```sh
+   git clone https://github.com/solamsalu/Webstack-Portfolio-Project.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+````
+2.For the backend, navigate to the "server" directory:
+```bash
+cd Portfolio_backend
+npm install
+nodemon server.js
+````
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3.For the frontend, navigate to the "client" directory:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd frontend
+npm install
+npm start
+```
