@@ -1,6 +1,6 @@
-# 📌 Selam Car Rental Web Site
+# 📌 Selam Car Rental Website
 
-Selam Car Rental Website is a full-stack MERN application designed for car rental, integrating essential dependencies like Redux Toolkit, Stripe, testing-library, Axios, React, React Router, and Tailwind CSS.
+Selam Car Rental Website is a full-stack MERN application designed for car rental, integrating essential dependencies like Redux Toolkit, Axios, React, express, React Router, and Mongodb.
 
 ## 🔍 Table of Contents
 
