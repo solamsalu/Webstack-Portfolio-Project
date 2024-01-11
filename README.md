@@ -50,7 +50,7 @@ To run this project, you need to add the following environment variables to your
 ````
 2.For the backend, navigate to the "server" directory:
 ```bash
-cd Portfolio_backend
+cd backend
 npm install
 nodemon server.js
 ````
